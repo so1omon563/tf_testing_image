@@ -11,9 +11,12 @@ RUN \
     pip install pre-commit && \
     pip install -U checkov && \
     curl -L "$(curl -s https://api.github.com/repos/aquasecurity/tfsec/releases/latest | grep -o -E -m 1 "https://.+?tfsec-linux-amd64")" > tfsec && chmod +x tfsec && mv tfsec /usr/bin/ && \
-    curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+    curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash & \
+    mkdir -p /workspace && \
+    cd /workspace && \
+    git init . && \
+    pre-commit install
 
-
+WORKDIR /workspace
 ENV CHEF_LICENSE="accept"
-
 

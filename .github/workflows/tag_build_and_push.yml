@@ -1,12 +1,9 @@
-name: ci
+name: tag_build_and_push
 
 on:
   push:
     tags:
       - "v*.*.*"
-  pull_request:
-    branches:
-      - "main"
 jobs:
   build:
     runs-on: ubuntu-latest

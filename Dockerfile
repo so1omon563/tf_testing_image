@@ -5,7 +5,7 @@ COPY Gemfile /
 RUN \
     apt-get update && \
     apt-get install -y ruby-full ruby-bundler build-essential python3-pip curl git && \
-    curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - && \
+    curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - && \
     apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && \
     apt-get update && apt-get install terraform && \
     bundle install && \

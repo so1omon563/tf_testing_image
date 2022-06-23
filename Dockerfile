@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 COPY Gemfile /
 
-ADD https://github.com/mmmorris1975/aws-runas/releases/download/3.3.3/ /root/aws-runas_3.3.3_amd64.deb
+ADD https://github.com/mmmorris1975/aws-runas/releases/download/3.3.3/aws-runas_3.3.3_amd64.deb /root/aws-runas_3.3.3_amd64.deb
 
 RUN \
     apt-get update && \

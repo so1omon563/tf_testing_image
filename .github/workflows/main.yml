@@ -19,15 +19,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          # list of Docker images to use as base name for tags
           images: |
             ${{ secrets.DOCKER_HUB_USERNAME }}/tf_testing
-          # generate Docker tags based on the following events/attributes
-          tags: |
-            latest
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:

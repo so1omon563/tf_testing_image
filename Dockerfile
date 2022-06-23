@@ -7,7 +7,7 @@ RUN \
     apt-get install -y ruby-full ruby-bundler build-essential python3-pip curl git && \
     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - && \
     apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && \
-    apt-get update && sudo apt-get install terraform && \
+    apt-get update && apt-get install terraform && \
     bundle install && \
     pip install pre-commit checkov && \
     curl -L "$(curl -s https://api.github.com/repos/aquasecurity/tfsec/releases/latest | grep -o -E -m 1 "https://.+?tfsec-linux-amd64")" > tfsec && chmod +x tfsec && mv tfsec /usr/bin/ && \

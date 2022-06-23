@@ -9,7 +9,7 @@ RUN \
     apt-add-repository -y "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && \
     apt-get update && apt-get install terraform && \
     bundle install && \
-    pip install pre-commit checkov && \
+    pip install pre-commit checkov six && \
     curl -L "$(curl -s https://api.github.com/repos/aquasecurity/tfsec/releases/latest | grep -o -E -m 1 "https://.+?tfsec-linux-amd64")" > tfsec && chmod +x tfsec && mv tfsec /usr/bin/ && \
     curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash && \
     curl -sSLo ./terraform-docs.tar.gz https://terraform-docs.io/dl/v0.16.0/terraform-docs-v0.16.0-$(uname)-amd64.tar.gz && tar -xzf terraform-docs.tar.gz && chmod +x terraform-docs && mv terraform-docs /usr/bin/ && \

@@ -3,7 +3,8 @@ name: push_build_only
 on:
   push:
     branches:
-      - "**"
+      - "bugfix/*"
+      - "feature/*"
 jobs:
   build:
     runs-on: ubuntu-latest

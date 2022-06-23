@@ -6,7 +6,7 @@ ADD https://github.com/mmmorris1975/aws-runas/releases/download/3.3.3/aws-runas_
 
 RUN \
     apt-get update && \
-    apt-get install -y ruby-full ruby-bundler build-essential python3-pip curl git lsb-release software-properties-common libcap2-bin && \
+    apt-get install -y ruby-full ruby-bundler build-essential python3-pip curl git lsb-release software-properties-common libcap2-bin vim && \
     curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add - && \
     apt-add-repository -y "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" && \
     apt-get update && apt-get install terraform && \

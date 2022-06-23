@@ -24,6 +24,7 @@ jobs:
             ${{ secrets.DOCKER_HUB_USERNAME }}/tf_testing
           # generate Docker tags based on the following events/attributes
           tags: |
+            latest
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}

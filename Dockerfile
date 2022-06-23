@@ -4,7 +4,7 @@ COPY Gemfile /
 
 RUN \
     apt-get update && \
-    apt-get install -y ruby-full ruby-bundler build-essential python3-pip curl && \
+    apt-get install -y ruby-full ruby-bundler build-essential python3-pip curl git && \
     bundle install && \
     pip install pre-commit && \
     pip install -U checkov && \

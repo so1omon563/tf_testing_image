@@ -2,7 +2,8 @@ FROM ubuntu:latest
 
 COPY Gemfile /
 
-ADD https://github.com/mmmorris1975/aws-runas/releases/download/3.3.3/aws-runas_3.3.3_amd64.deb /root/aws-runas_3.3.3_amd64.deb
+ARG AWS_RUNAS_VERSION=3.5.1
+ADD https://github.com/mmmorris1975/aws-runas/releases/download/3.5.1/aws-runas_${AWS_RUNAS_VERSION}_amd64.deb /root/aws-runas_3.5.1_amd64.deb
 
 RUN \
     apt-get update && \
@@ -16,8 +17,8 @@ RUN \
     curl -sSLo ./terraform-docs.tar.gz https://terraform-docs.io/dl/v0.16.0/terraform-docs-v0.16.0-$(uname)-amd64.tar.gz && tar -xzf terraform-docs.tar.gz && chmod +x terraform-docs && mv terraform-docs /usr/bin/ && \
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && ./aws/install && rm -rf awscliv2.zip aws && \
     apt-get remove -y software-properties-common lsb-release && apt-get -y autoremove && \
-    dpkg -i /root/aws-runas_3.3.3_amd64.deb && \
-    rm /root/aws-runas_3.3.3_amd64.deb && \
+    dpkg -i /root/aws-runas_${AWS_RUNAS_VERSION}_amd64.deb && \
+    rm /root/aws-runas_${AWS_RUNAS_VERSION}_amd64.deb && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /workspace && \
